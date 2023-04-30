@@ -126,3 +126,26 @@ def compare_files(file1, file2, output_file, id_cols, file_format="csv"):
 
     # Write the results to a new CSV file
     actual_diff_df.to_csv(output_file, index_label=id_cols)
+
+
+def main():
+    file1 = input("Enter the path of the first CSV file: ")
+    file2 = input("Enter the path of the second CSV file: ")
+    output_file = input("Enter the path for the output CSV file: ")
+
+    # Use 'Ref' and 'DateDue' as the unique identifier columns
+    unique_id_columns = ["Ref", "DateDue"]
+    compare_files(file1, file2, output_file, id_cols=unique_id_columns)
+
+
+if __name__ == "__main__":
+    main()
+
+
+# file1 = "LH_SUN_ADYEN_TRIAL_28042023_103703WLH.csv"
+# file2 = "LH_SUN_ADYEN_TRIAL_28042023_104216_WLH.csv"
+# output_file = "comparison_results.csv"
+
+# # Use 'Ref' and 'DateDue' as the unique identifier columns
+# unique_id_columns = ["Ref", "DateDue"]
+# compare_files(file1, file2, output_file, id_cols=unique_id_columns)

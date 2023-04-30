@@ -1,63 +1,52 @@
-# CSV and Excel File Comparison Tool
+# CSV File Comparison Tool
 
-This Python script allows you to compare two CSV or Excel files and generates a report highlighting the differences. It works by reading the input files, merging them based on a unique identifier, and then comparing the values in each column. The results are saved to an output file, and a summary of the differences is also generated.
+This Python script compares two CSV files and outputs a summary of differences and a detailed comparison file. The script now prompts the user for input and output file paths instead of using hardcoded file paths.
 
 ## Prerequisites
 
-- Python 3.6 or higher
-
-## Dependencies
+This script requires Python 3.6+ and the following libraries:
 
 - pandas
 - numpy
 
-## Setting up a virtual environment
+## Setting Up a Virtual Environment
 
-To set up a virtual environment using `venv`, follow these steps:
+It is recommended to set up a virtual environment for this project. You can do so using `venv`. To create a virtual environment, open a terminal, navigate to the project directory, and run:
 
-1. Open a terminal/command prompt.
-2. Create a new directory for your project and navigate to it:
-   `mkdir file_comparison`
+```bash
+python -m venv venv
+```
 
-`cd file_comparison`
-
-3. Create a new virtual environment in the directory:
-   `python -m venv venv`
-
-4. Activate the virtual environment:
+This will create a virtual environment named venv in the project directory. To activate the virtual environment, run:
 
 - On Windows:
 
 `venv\Scripts\activate`
 
-- On macOS/Linux:
+- On macOS and Linux:
 
 `source venv/bin/activate`
 
-5. Install the required dependencies in the virtual environment:
+## Installing Dependencies
+
+After activating the virtual environment, you can install the required dependencies using `pip`. Run the following command:
 
 `pip install pandas numpy`
 
 ## Usage
 
-To use the script, you need to call the `compare_files` function with the following parameters:
+To use the script, simply run the following command:
 
-- `file1`: The path to the first CSV file.
-- `file2`: The path to the second CSV file.
-- `output_file`: The path where the comparison results will be saved.
-- `id_cols`: A list of unique identifier columns that exist in both CSV files.
+`python compare_csv.py`
 
-Example usage:
+The script will prompt you for the file paths of the two CSV files you want to compare and the output file path. Provide the file paths, and the script will generate a summary file and a detailed comparison file in the specified output path.
+
+Example:
 
 ```
-from compare_csv import compare_csv_files
-
-file1 = "example_file1.csv"
-file2 = "example_file2.csv"
-output_file = "comparison_results.csv"
-unique_id_columns = ["column1", "column2"]
-
-compare_csv_files(file1, file2, output_file, id_cols=unique_id_columns)
+Enter the path of the first CSV file: file1.csv
+Enter the path of the second CSV file: file2.csv
+Enter the path of the output file: comparison_results.csv
 ```
 
-This example assumes you have two CSV files named `example_file1.csv` and `example_file2.csv`. The script will compare these files and save the comparison results to `comparison_results.csv`. The unique identifier columns used for comparison are column1 and column2.
+The above example will create a "comparison_results.csv" file in the same directory as the script.
